@@ -10,3 +10,4 @@ source ~/.vimrc
 
 tnoremap <C-[> <C-\><C-N>
 
+let g:deoplete#enable_at_startup = 1
