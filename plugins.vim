@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'kien/ctrlp.vim'
 " Autocomplete for python
 Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
 
 Plug 'neomake/neomake'
 
@@ -63,7 +64,12 @@ let g:jedi#rename_command = "<leader>r"
 
 "neomake
 autocmd! BufWritePost * Neomake
+let g:neomake_python_pylint_maker = {
+    \ 'args': ['--errors-only'],
+    \ }
 let g:neomake_python_enable_makers = ['pylint']
+let g:neomake_ft_maker_remove_invalid_entries = 1
+
 
 """""""airline
 let g:airline#extensions#tabline#enabled = 0

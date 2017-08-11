@@ -6,8 +6,9 @@ source ~/.vimrc
 
 
 
-:command Ipython vs|te ipython --TerminalInteractiveShell.editing_mode=vi
+:command Jupyter vs|te jupyter console --ZMQTerminalInteractiveShell.editing_mode=vi
 
-tnoremap <C-[> <C-\><C-N>
+:tnoremap <C-\> <C-\><C-n>
+
 
 let g:deoplete#enable_at_startup = 1
