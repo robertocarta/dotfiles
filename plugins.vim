@@ -42,6 +42,41 @@ Plug 'tpope/vim-surround'
 "Comment easily with gcc"
 Plug 'tomtom/tcomment_vim' 
 
+
+"Neovim plugins
+
+
+
+
+" (Optional) Multi-entry selection UI.
+Plug 'Shougo/denite.nvim'
+
+" (Optional) Showing function signature and inline doc.
+Plug 'Shougo/echodoc.vim'
+Plug 'HiPhish/repl.nvim'
+let g:repl={}
+let g:repl['python'] = {
+    \'binary': 'jupyter console',
+    \ 'args': [],
+    \ 'syntax': '',
+    \ 'title': 'Jupyter'
+    \ }
+
+" Send the text of a motion to the REPL
+nmap <leader>rs  <Plug>(ReplSend)
+" Send the current line to the REPL
+nmap <leader>rss <Plug>(ReplSendLine)
+nmap <leader>rs_ <Plug>(ReplSendLine)
+" Send the selected text to the REPL
+vmap <C-j>  <Plug>(ReplSend)
+
+
+"Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+
+
 filetype plugin indent on                   " required!
 call plug#end()
 
