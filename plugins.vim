@@ -34,8 +34,6 @@ Plug 'vim-airline/vim-airline-themes'
 "Nord vim color scheme
 Plug 'arcticicestudio/nord-vim'
 
-Plug 'morhetz/gruvbox'
-
 "Color
 Plug 'morhetz/gruvbox'
 
