@@ -101,6 +101,7 @@ let g:jedi#rename_command = "<leader>r"
 
 
 
+
 "neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_python_pylint_maker = {
@@ -113,6 +114,7 @@ let g:neomake_ft_maker_remove_invalid_entries = 1
 """""""airline
 "let g:airline#extensions#tabline#enabled = 0
 let g:AirlineTheme = 'gruvbox'
+
 
 
 
