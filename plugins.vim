@@ -30,8 +30,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
 
 " status bar mods
+"
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 
 "Nord vim color scheme
 Plug 'arcticicestudio/nord-vim'
