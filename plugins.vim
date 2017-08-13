@@ -34,6 +34,8 @@ Plug 'vim-airline/vim-airline-themes'
 "Nord vim color scheme
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'morhetz/gruvbox'
+
 "Color
 Plug 'morhetz/gruvbox'
 
@@ -72,8 +74,8 @@ let g:neomake_ft_maker_remove_invalid_entries = 1
 
 
 """""""airline
-let g:airline#extensions#tabline#enabled = 0
-let g:AirlineTheme = 'Molokai'
+"let g:airline#extensions#tabline#enabled = 0
+let g:AirlineTheme = 'gruvbox'
 
 
 

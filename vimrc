@@ -12,7 +12,7 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme nord
+colorscheme gruvbox
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
