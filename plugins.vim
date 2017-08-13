@@ -17,7 +17,9 @@ call plug#begin('~/.vim/plugged')
 " Ctrl-P - Fuzzy file search
 Plug 'kien/ctrlp.vim'
 " Autocomplete for python
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
+" (Optional) Completion integration with deoplete.
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 
 Plug 'neomake/neomake'
