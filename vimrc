@@ -1,6 +1,9 @@
 "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " background has to be set on terminal as 43-48-59
 "plugins
+"mappings
+let mapleader = ","
+let g:mapleader = ","
 source ~/dotfiles/plugins.vim
 "
 set nocompatible
@@ -34,9 +37,6 @@ set mouse=a
 set splitright
 set splitbelow
 
-"mappings
-let mapleader = ","
-let g:mapleader = ","
 
  " Always use vertical diffs
  set diffopt+=vertical
