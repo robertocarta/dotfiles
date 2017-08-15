@@ -27,6 +27,7 @@ Plug 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
 "let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 let g:deoplete#enable_refresh_always = 1
+let g:deoplete#omni_patterns = {}
 
 Plug 'neomake/neomake'
 
