@@ -19,7 +19,7 @@ Plug 'kien/ctrlp.vim'
 " Autocomplete for python
 Plug 'davidhalter/jedi-vim'
 "disable autocomplete for jedi
-let g:jedi#completions_enabled = 1
+let g:jedi#completions_enabled = 0
 
 " (Optional) Completion integration with deoplete.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -111,7 +111,7 @@ let g:jedi#rename_command = "<leader>r"
 
 "neomake
 autocmd! BufWritePost * Neomake
-let g:neomake_python_enable_makers = ['pylint --error-only']
+let g:neomake_python_enabled_makers = ['pyflakes']
 let g:neomake_ft_maker_remove_invalid_entries = 1
 
 

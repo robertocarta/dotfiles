@@ -18,19 +18,22 @@ com! -nargs=1 -bang -complete=customlist,Tests
 function! Lasttest()
 	let i =0
 	let countt=0
-	while histget('cmd', i) !~ '^Tes' || countt <3
+	let limit=50
+	let commands = []
+	while histget('cmd', i) !~ '^Tes' && countt <limit
 		let i-=1
 		let countt+=1
+		let commands += [histget('cmd', i)] 
 	endwhile
-	if count <50
-		echo histget('cmd', i)
+	if count <limit
 		execute histget('cmd', i)
-		echo histget('cmd', i)
 	else
 		echo 'none'
 	endif
 endfun
 
 nnoremap <C-t> :call Lasttest() <CR>
+
+command! L :w |source % 
 
 
