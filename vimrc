@@ -80,3 +80,4 @@ set noexpandtab
 
 
 
+nnremap <Space> :nohlsearch <CR>

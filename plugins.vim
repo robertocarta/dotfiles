@@ -29,7 +29,25 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#omni_patterns = {}
 
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+let g:airline#extensions#ale#enabled = 1
+" Disable ALE warnings about trailing whitespace.
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_completion_enabled = 1
+
+
+let g:ale_linters = {
+\   'html': [],
+\   'javascript': ['eslint'],
+\   'python': ['flake8', 'pylint'],
+\}
+let g:ale_python_flake8_options='--select=F,W'
+
+let g:ale_sign_warning='.'
+hi ALEErrorSign ctermfg=red ctermbg=none
+let g:ale_sign_error='●'
+hi ALEWarningSign ctermfg=blue ctermbg=none
 
 Plug 'scrooloose/nerdtree'
 
@@ -110,9 +128,9 @@ let g:jedi#rename_command = "<leader>r"
 
 
 "neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_python_enabled_makers = ['pyflakes']
-let g:neomake_ft_maker_remove_invalid_entries = 1
+" autocmd! BufWritePost * Neomake
+" let g:neomake_python_enabled_makers = ['pyflakes']
+" let g:neomake_ft_maker_remove_invalid_entries = 1
 
 
 """""""airline
