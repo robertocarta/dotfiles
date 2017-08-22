@@ -85,11 +85,12 @@ Plug 'Shougo/echodoc.vim'
 Plug 'HiPhish/repl.nvim'
 let g:repl={}
 let g:repl['python'] = {
-    \'binary': 'jupyter console',
-    \ 'args': [],
-    \ 'syntax': '',
-    \ 'title': 'Jupyter'
-    \ }
+  		\ 'bin': 'ipython',
+  		\ 'args': [],
+ 		\ 'syntax': '',
+  		\ 'title': 'ipython',
+ 		\ 'preproc': {txt -> join(filter(split(txt, '\n'), {idx, val -> !empty(val)}), "\n")}
+		\}
 
 " Send the text of a motion to the REPL
 nmap <leader>rs  <Plug>(ReplSend)
