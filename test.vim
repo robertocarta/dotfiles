@@ -8,11 +8,6 @@ let g:test_command='python -m'
 " com! -nargs=1 -bang -complete= customlist, Test
 "  			\ Testthis edit <bang> <args>
 "
-command! -nargs=1 Testhis :split|te python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot.<f-args>
-
-com! -nargs=1 -bang -complete=customlist,Tests
-			\ Testt Testhis <bang> <args>
-
 
 
 function! Lasttest()
@@ -36,4 +31,14 @@ nnoremap <C-t> :call Lasttest() <CR>
 
 command! L :w |source % 
 
+
+let s:path = resolve(expand('<sfile>:p'))
+function! CloseTests()
+    pyfile ~/dotfiles/closetests.py
+endfunc
+
+command! -nargs=1 Testhis :call CloseTests()|:split|te python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot.<f-args>|file testtt
+
+com! -nargs=1 -bang -complete=customlist,Tests
+			\ Testt Testhis <bang> <args>
 
