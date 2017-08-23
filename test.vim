@@ -5,11 +5,6 @@ let g:test_command='python -m'
  	return funcs
  endfun
 
-" com! -nargs=1 -bang -complete= customlist, Test
-"  			\ Testthis edit <bang> <args>
-"
-
-
 function! Lasttest()
 	let i =0
 	let countt=0
@@ -37,8 +32,23 @@ function! CloseTests()
     pyfile ~/dotfiles/closetests.py
 endfunc
 
-command! -nargs=1 Testhis :call CloseTests()|:split|te python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot.<f-args>|file testtt
+command! -nargs=1 Testhis :call Run(<f-args>)
 
 com! -nargs=1 -bang -complete=customlist,Tests
 			\ Testt Testhis <bang> <args>
+
+function! Run(testname)
+	let n = winnr()
+	call CloseTests()
+	split
+	let l:com = 'python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot'.a:testname
+	execute 'te' l:com
+	file testtt
+	execute n."wincmd w"
+	stopinsert 
+endfunction
+
+nnoremap <S-T> :bdelete! testtt  <CR>
+	
+
 

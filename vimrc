@@ -5,6 +5,10 @@
 let mapleader = ","
 let g:mapleader = ","
 source ~/dotfiles/plugins.vim
+if has('nvim')
+	source ~/dotfiles/test.vim
+	source ~/dotfiles/betterdefaults.vim
+endif
 "
 set nocompatible
 set t_Co=256
@@ -62,21 +66,6 @@ set smartindent
 set noexpandtab
 
 
-"Don't know what the following is
-"if has("autocmd")
-"    au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-"    au InsertEnter,InsertChange *
-"            \ if v:insertmode == 'i' | 
-"            \   silent execute '!echo -ne "\e[5 q"' | redraw! |
-"            \ elseif v:insertmode == 'r' |
-"            \   silent execute '!echo -ne "\e[3 q"' | redraw! |
-"            \ endif
-"          au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
-"  endif
+nnoremap <silent> <ESC> :nohlsearch <CR>
 
 
-  " "
-
-
-
-nnoremap <Space> :nohlsearch <CR>
