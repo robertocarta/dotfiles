@@ -27,3 +27,10 @@ augroup END
 "
 
 set autowriteall
+
+"open quickfix everytime a quickfixcommand is used
+"
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+augroup END
