@@ -20,9 +20,10 @@ inoremap <C-d> <Delete>
 """
 augroup focus
     au!
-    au TabLeave * silent! wall
-    au FocusLost * silent! wall
-    au BufLeave * silent! wall
+    au TabLeave *  wall
+    au FocusLost *  wall
+    au BufLeave *  wall
+    au WinLeave * wall
 augroup END
 "
 

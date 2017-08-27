@@ -25,10 +25,9 @@ let g:jedi#completions_enabled = 0
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
-"let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
+" let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 let g:deoplete#enable_refresh_always = 1
-let g:deoplete#omni_patterns = {}
-
+"
 " Plug 'neomake/neomake'
 Plug 'w0rp/ale'
 let g:airline#extensions#ale#enabled = 1
