@@ -41,7 +41,7 @@ function! Run(testname)
 	let n = winnr()
 	call CloseTests()
 	split
-	let l:com = 'python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot'.a:testname
+	let l:com = 'python2 -m unittest tvsquared.tmp.rc.test_generateRawSpot.'. a:testname
 	execute 'te' l:com
 	file testtt
 	execute n."wincmd w"
