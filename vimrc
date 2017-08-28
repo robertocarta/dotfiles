@@ -8,6 +8,7 @@ source ~/dotfiles/plugins.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
 	source ~/dotfiles/betterdefaults.vim
+	source ~/dotfiles/pynavigate.vim
 endif
 "
 set nocompatible

@@ -21,32 +21,34 @@ Plug 'davidhalter/jedi-vim'
 "disable autocomplete for jedi
 let g:jedi#completions_enabled = 0
 
-" (Optional) Completion integration with deoplete.
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
-let g:deoplete#enable_refresh_always = 1
-"
-" Plug 'neomake/neomake'
-Plug 'w0rp/ale'
-let g:airline#extensions#ale#enabled = 1
-" Disable ALE warnings about trailing whitespace.
-let g:ale_warn_about_trailing_whitespace = 0
-let g:ale_completion_enabled = 1
+if has('nvim')
+	" (Optional) Completion integration with deoplete.
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'zchee/deoplete-jedi'
+	let g:deoplete#enable_at_startup = 1
+	" let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
+	let g:deoplete#enable_refresh_always = 1
+	"
+	" Plug 'neomake/neomake'
+	Plug 'w0rp/ale'
+	let g:airline#extensions#ale#enabled = 1
+	" Disable ALE warnings about trailing whitespace.
+	let g:ale_warn_about_trailing_whitespace = 0
+	let g:ale_completion_enabled = 1
 
 
-let g:ale_linters = {
-\   'html': [],
-\   'javascript': ['eslint'],
-\   'python': ['flake8', 'pylint'],
-\}
-let g:ale_python_flake8_options='--select=F,W'
+	let g:ale_linters = {
+	\   'html': [],
+	\   'javascript': ['eslint'],
+	\   'python': ['flake8', 'pylint'],
+	\}
+	let g:ale_python_flake8_options='--select=F,W'
 
-let g:ale_sign_warning='.'
-hi ALEErrorSign ctermfg=red ctermbg=none
-let g:ale_sign_error='●'
-hi ALEWarningSign ctermfg=blue ctermbg=none
+	let g:ale_sign_warning='.'
+	hi ALEErrorSign ctermfg=red ctermbg=none
+	let g:ale_sign_error='●'
+	hi ALEWarningSign ctermfg=blue ctermbg=none
+endif
 
 Plug 'scrooloose/nerdtree'
 
