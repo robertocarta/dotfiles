@@ -10,6 +10,10 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+if !empty(glob('~/dotfiles/tvsquared.vim'))
+	source ~/dotfiles/tvsquared.vim
+endif
+
 
 call plug#begin('~/.vim/plugged')
 
@@ -21,7 +25,7 @@ Plug 'davidhalter/jedi-vim'
 "disable autocomplete for jedi
 let g:jedi#completions_enabled = 0
 
-if has('nvim')
+if has('nvim') && !exists("g:giu_oni")
 	" (Optional) Completion integration with deoplete.
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'zchee/deoplete-jedi'
@@ -138,6 +142,7 @@ let g:jedi#rename_command = "<leader>r"
 """""""airline
 "let g:airline#extensions#tabline#enabled = 0
 let g:AirlineTheme = 'gruvbox'
+
 
 
 
