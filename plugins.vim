@@ -48,6 +48,9 @@ if has('nvim')
 	hi ALEErrorSign ctermfg=red ctermbg=none
 	let g:ale_sign_error='●'
 	hi ALEWarningSign ctermfg=blue ctermbg=none
+
+
+	Plug 'bfredl/nvim-ipy'
 endif
 
 Plug 'scrooloose/nerdtree'
