@@ -57,6 +57,7 @@ if has('nvim') && !exists("g:giu_oni")
 
 
 	Plug 'bfredl/nvim-ipy'
+	nmap <leader>j vip<F5>
 endif
 
 Plug 'scrooloose/nerdtree'
@@ -150,5 +151,11 @@ let g:AirlineTheme = 'gruvbox'
 
 
 
+<<<<<<< HEAD
 
 
+=======
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|build$\|test$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+>>>>>>> 1363fbf6053cd76b1e893f408d4ee6c84c5f8924
