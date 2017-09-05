@@ -27,13 +27,15 @@ let g:jedi#completions_enabled = 0
 
 if has('nvim') && !exists("g:giu_oni")
 	" (Optional) Completion integration with deoplete.
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'zchee/deoplete-jedi'
-	let g:deoplete#enable_at_startup = 1
-	" let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
-	let g:deoplete#enable_refresh_always = 1
+	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	" Plug 'zchee/deoplete-jedi'
+	" let g:deoplete#enable_at_startup = 1
+	" " let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
+	" let g:deoplete#enable_refresh_always = 1
 	"
 	" Plug 'neomake/neomake'
+	Plug 'roxma/nvim-completion-manager'
+
 	Plug 'w0rp/ale'
 	let g:airline#extensions#ale#enabled = 1
 	" Disable ALE warnings about trailing whitespace.
