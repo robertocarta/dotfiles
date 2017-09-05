@@ -3,7 +3,8 @@ to make things work:
 pip install neovim (in both py2 and py3)
 pip install pylint
 pip install flake8
-pip install jedi
+pip3 install --user neovim jedi mistune psutil setproctitle
+pip2 install --user neovim jedi mistune psutil setproctitle
 
 symlinks from vim to nvim
 

@@ -51,6 +51,7 @@ if has('nvim')
 
 
 	Plug 'bfredl/nvim-ipy'
+	nmap <leader>j vip<F5>
 endif
 
 Plug 'scrooloose/nerdtree'

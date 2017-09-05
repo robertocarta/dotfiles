@@ -2,8 +2,8 @@
 " background has to be set on terminal as 43-48-59
 "plugins
 "mappings
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = " "
+let g:mapleader = " "
 source ~/dotfiles/plugins.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
@@ -69,4 +69,15 @@ set noexpandtab
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
+
+
+"make space around line/par
+nnoremap <leader>o mpo<ESC>kO<ESC>`p
+nnoremap <leader>O mp}o<ESC>{O<ESC>`p
+
+
+
+
+" swap two function args with cursor on the second
+nnoremap <leader>s diwbbPa, <ESC>f,df <ESC>
 
