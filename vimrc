@@ -1,8 +1,4 @@
-"git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" background has to be set on terminal as 43-48-59
-"plugins
-"mappings
-let mapleader = " "
+map leader = " "
 let g:mapleader = " "
 source ~/dotfiles/plugins.vim
 if has('nvim')
@@ -13,6 +9,7 @@ endif
 "
 set nocompatible
 set t_Co=256
+set termguicolors
 filetype plugin indent on
 
 
@@ -20,7 +17,7 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme nord
+colorscheme darcula
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
@@ -68,6 +65,8 @@ set noexpandtab
 
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
+
+nnoremap 8 mv*#`v
 
 
 

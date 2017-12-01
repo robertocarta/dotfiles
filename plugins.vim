@@ -25,6 +25,10 @@ Plug 'davidhalter/jedi-vim'
 "disable autocomplete for jedi
 let g:jedi#completions_enabled = 0
 
+"Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 if has('nvim') && !exists("g:giu_oni")
 	" (Optional) Completion integration with deoplete.
 	" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -71,12 +75,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
+"sorta focus mode
+Plug 'chrisbra/NrrwRgn'
+
 "Nord vim color scheme
 Plug 'arcticicestudio/nord-vim'
 
 "Color
 Plug 'morhetz/gruvbox'
 
+"Dracula
+Plug 'blueshirts/darcula'
 
 Plug 'tpope/vim-surround'
 "Comment easily with gcc"
@@ -111,10 +120,6 @@ nmap <leader>rs_ <Plug>(ReplSendLine)
 " Send the selected text to the REPL
 vmap <C-j>  <Plug>(ReplSend)
 
-
-"Git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 
 
@@ -151,11 +156,7 @@ let g:AirlineTheme = 'gruvbox'
 
 
 
-<<<<<<< HEAD
 
-
-=======
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|build$\|test$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
->>>>>>> 1363fbf6053cd76b1e893f408d4ee6c84c5f8924
