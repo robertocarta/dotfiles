@@ -120,8 +120,10 @@ Plug 'tomtom/tcomment_vim'
 
 Plug 'roxma/ncm-flow'
 
-"Neovim plugins
 
+Plug 'alvan/vim-closetag'
+Plug 'othree/html5.vim'
+Plug 'sheerun/vim-polyglot'
 
 
 
