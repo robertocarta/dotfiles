@@ -1,6 +1,6 @@
 map leader = " "
 let g:mapleader = " "
-source ~/dotfiles/plugins.vim
+source ~/dotfiles/homeplugins.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
 	source ~/dotfiles/betterdefaults.vim
@@ -10,6 +10,7 @@ endif
 set nocompatible
 set t_Co=256
 set termguicolors
+:set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 filetype plugin indent on
 
 
@@ -62,7 +63,8 @@ set number showmatch
 let python_highlight_all = 1
 set smartindent
 set noexpandtab
-
+setlocal shiftwidth=4
+setlocal tabstop=4
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
@@ -80,3 +82,7 @@ nnoremap <leader>O mp}o<ESC>{O<ESC>`p
 " swap two function args with cursor on the second
 nnoremap <leader>s diwbbPa, <ESC>f,df <ESC>
 
+au FileType html setl sw=4 sts=4 et
+au FileType htmldjango setl sw=4 sts=4 et
+au FileType javascript setl sw=4 sts=4 et
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
