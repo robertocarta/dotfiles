@@ -19,7 +19,7 @@ function! ExtractVariable()
     " Paste the original selected text to be the variable value
     normal! $p
 endfunction
-vnoremap <leader>e :call ExtractVariable()<cr>
+nnoremap <leader>e :RRB <CR>
 
 
 

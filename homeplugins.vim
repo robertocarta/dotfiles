@@ -64,7 +64,8 @@ let g:LanguageClient_serverCommands = {
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
+Plug 'mkitt/browser-refresh.vim'
+let g:RefreshRunningBrowserDefault = 'chrome'
 nnoremap <C-p> :FZF <CR>
 nnoremap <C-f> :Lines <CR>
 nnorema <C-g> :Ag 
