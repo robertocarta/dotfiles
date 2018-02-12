@@ -5,12 +5,13 @@ if has('nvim')
 	source ~/dotfiles/test.vim
 	source ~/dotfiles/betterdefaults.vim
 	source ~/dotfiles/pynavigate.vim
+	source ~/dotfiles/webdevcustom.vim
 endif
 "
 set nocompatible
 set t_Co=256
 set termguicolors
-:set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+" set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:block-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 filetype plugin indent on
 
 
@@ -68,7 +69,7 @@ setlocal tabstop=4
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
-nnoremap 8 mv*#`v
+nnoremap <c-8> mv*#`v
 
 
 

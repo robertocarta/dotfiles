@@ -17,9 +17,9 @@ call plug#begin('~/.vim/plugged')
 " Ctrl-P - Fuzzy file search
 " Plug 'kien/ctrlp.vim'
 " Autocomplete for python
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 "disable autocomplete for jedi
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
 
 " (Optional) Completion integration with deoplete.
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -64,7 +64,8 @@ let g:LanguageClient_serverCommands = {
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
+Plug 'mkitt/browser-refresh.vim'
+let g:RefreshRunningBrowserDefault = 'chrome'
 nnoremap <C-p> :FZF <CR>
 nnoremap <C-f> :Lines <CR>
 nnorema <C-g> :Ag 
@@ -153,6 +154,7 @@ vmap <C-j>  <Plug>(ReplSend)
 
 "Git
 Plug 'airblade/vim-gitgutter'
+:au VimEnter * :GitGutterDisable
 Plug 'tpope/vim-fugitive'
 
 
@@ -186,8 +188,12 @@ let g:jedi#rename_command = "<leader>r"
 
 """""""airline
 "let g:airline#extensions#tabline#enabled = 0
-let g:AirlineTheme = 'gruvbox'
+let g:AirlineTheme = 'minimalist'
 
 
 
 
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>b :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
