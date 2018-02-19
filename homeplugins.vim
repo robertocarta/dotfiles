@@ -56,8 +56,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+	\ 'javascript': ['javascript-typescript-stdio'],
+	\ 'javascript.jsx': ['javascript-typescript-stdio'],
+	\ 'html': ['html-languageserver', '--stdio'],
+	\ 'css': ['css-languageserver', '--stdio'],
 	\ 'python':['pyls']
     \ }
+
 
     " \ 'javascript': ['javascript-typescript-stdio'],
     " \ 'javascript.jsx': ['javascript-typescript-stdio'],
@@ -73,10 +78,28 @@ nnorema <C-g> :Ag
 
 
 Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+" Use fuzzy matching
+let g:cm_matcher = {'case': 'smartcase', 'module': 'cm_matchers.fuzzy_matcher'}
+autocmd FileType javascript,python,typescript,json,css,less,html,reason setlocal omnifunc=LanguageClient#complete
+
+
 set shortmess+=c
 Plug 'roxma/ncm-flow'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'calebeby/ncm-css'
+
+
+Plug 'burnettk/vim-angular'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+
+
+
 
 Plug 'junegunn/goyo.vim'
 Plug 'prabirshrestha/async.vim'
