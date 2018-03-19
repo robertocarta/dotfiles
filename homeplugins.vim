@@ -47,6 +47,7 @@ call plug#begin('~/.vim/plugged')
 "hi ALEErrorSign ctermfg=red ctermbg=none
 "let g:ale_sign_error='●'
 "hi ALEWarningSign ctermfg=blue ctermbg=none
+Plug 'AndrewRadev/splitjoin.vim'
 "
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -165,7 +166,8 @@ let g:repl['python'] = {
   		\ 'title': 'ipython',
  		\ 'preproc': {txt -> join(filter(split(txt, '\n'), {idx, val -> !empty(val)}), "\n")}
 		\}
-
+Plug 'bfredl/nvim-ipy'
+nmap <leader>j vip<F5>
 " Send the text of a motion to the REPL
 nmap <leader>rs  <Plug>(ReplSend)
 " Send the current line to the REPL

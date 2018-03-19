@@ -15,7 +15,7 @@ function! Lasttest()
 		let countt+=1
 		let commands += [histget('cmd', i)] 
 	endwhile
-	if count <limit
+	if countt <limit
 		execute histget('cmd', i)
 	else
 		echo 'none'
@@ -39,9 +39,11 @@ com! -nargs=1 -bang -complete=customlist,Tests
 
 function! Run(testname)
 	let n = winnr()
+	let filename = expand('%:t:r')
 	call CloseTests()
 	split
-	let l:com = 'python2 -m unittest tvsquared.tmp.rc.test_msimporter.'. a:testname
+	let l:com = 'python2 -m unittest tvsquared.tmp.rc.newsplits.testdumprestore.'. filename . '.' .a:testname
+	echo l:com
 	execute 'te' l:com
 	file testtt
 	execute n."wincmd w"

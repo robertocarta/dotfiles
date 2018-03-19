@@ -20,7 +20,7 @@ function! ExtractVariable()
     normal! $p
 endfunction
 nnoremap <leader>l :RRB <CR>
-nnoremap <leader>e :RRB <CR>
+vnoremap <leader>e :call ExtractVariable() <CR>
 
 
 " Toggle 'default' terminal
