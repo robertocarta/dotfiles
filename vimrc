@@ -1,6 +1,7 @@
 map leader = " "
 let g:mapleader = " "
 source ~/dotfiles/homeplugins.vim
+" source ~/dotfiles/plsp.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
 	source ~/dotfiles/betterdefaults.vim
@@ -10,7 +11,7 @@ endif
 "
 set nocompatible
 set t_Co=256
-set termguicolors
+" set termguicolors
 " set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:block-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 filetype plugin indent on
 
@@ -19,7 +20,7 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme darcula
+colorscheme nord
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
@@ -69,7 +70,7 @@ setlocal tabstop=4
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
-nnoremap <c-8> mv*#`v
+nnoremap <leader>8 mv*#`v
 
 
 
@@ -87,3 +88,6 @@ au FileType html setl sw=4 sts=4 et
 au FileType htmldjango setl sw=4 sts=4 et
 au FileType javascript setl sw=4 sts=4 et
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+
+set signcolumn=yes
