@@ -1,4 +1,4 @@
-map leader = " "
+map leader = " " 
 let g:mapleader = " "
 source ~/dotfiles/homeplugins.vim
 " source ~/dotfiles/plsp.vim
@@ -7,11 +7,12 @@ if has('nvim')
 	source ~/dotfiles/betterdefaults.vim
 	source ~/dotfiles/pynavigate.vim
 	source ~/dotfiles/webdevcustom.vim
+	source ~/dotfiles/django.vim
 endif
 "
 set nocompatible
 set t_Co=256
-" set termguicolors
+set termguicolors
 " set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:block-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 filetype plugin indent on
 
@@ -20,7 +21,7 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme nord
+colorscheme darcula
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
@@ -37,6 +38,7 @@ set incsearch
 set hlsearch
 set laststatus=2
 set mouse=a
+set undofile
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -91,3 +93,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 
 set signcolumn=yes
+
+set exrc
+set secure

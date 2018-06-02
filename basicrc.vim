@@ -45,7 +45,7 @@ let g:mapleader = " "
 "
 set nocompatible
 "set t_Co=256
-set termguicolors
+" set termguicolors
 " set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:block-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 filetype plugin indent on
 syntax enable

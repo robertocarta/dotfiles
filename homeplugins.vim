@@ -10,6 +10,10 @@ if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
+if !empty(glob('~/dotfiles/tvsquared.vim'))
+	source ~/dotfiles/tvsquared.vim
+endif
+
 
 call plug#begin('~/.vim/plugged')
 
@@ -47,49 +51,53 @@ call plug#begin('~/.vim/plugged')
 "hi ALEErrorSign ctermfg=red ctermbg=none
 "let g:ale_sign_error='●'
 "hi ALEWarningSign ctermfg=blue ctermbg=none
-Plug 'AndrewRadev/splitjoin.vim'
 "
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+"
+"
+if has('nvim')
+	Plug 'AndrewRadev/splitjoin.vim'
+	"
+	Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-	\ 'javascript': ['javascript-typescript-stdio'],
-	\ 'javascript.jsx': ['javascript-typescript-stdio'],
-	\ 'html': ['html-languageserver', '--stdio'],
-	\ 'css': ['css-languageserver', '--stdio'],
-	\ 'python':['pyls']
-    \ }
+	Plug 'autozimu/LanguageClient-neovim', {
+		\ 'branch': 'next',
+		\ 'do': 'bash install.sh',
+		\ }
+
+	let g:LanguageClient_serverCommands = {
+		\ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+		\ 'javascript': ['javascript-typescript-stdio'],
+		\ 'javascript.jsx': ['javascript-typescript-stdio'],
+		\ 'html': ['html-languageserver', '--stdio'],
+		\ 'css': ['css-languageserver', '--stdio'],
+		\ 'python':['pyls']
+		\ }
+endif
 
 
     " \ 'javascript': ['javascript-typescript-stdio'],
     " \ 'javascript.jsx': ['javascript-typescript-stdio'],
 
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'mkitt/browser-refresh.vim'
+
+" Plug 'mkitt/browser-refresh.vim'
 let g:RefreshRunningBrowserDefault = 'chrome'
 nnoremap <C-p> :FZF <CR>
 nnoremap <C-f> :Lines <CR>
-nnorema <C-g> :Ag 
+nnoremap <C-g> :Ag <CR>
+nnoremap <C-g> :Buffers <CR>
 
 
-Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+
 " Use fuzzy matching
 let g:cm_matcher = {'case': 'smartcase', 'module': 'cm_matchers.fuzzy_matcher'}
 autocmd FileType javascript,python,typescript,json,css,less,html,reason setlocal omnifunc=LanguageClient#complete
 
 
 set shortmess+=c
-Plug 'roxma/ncm-flow'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'calebeby/ncm-css'
 
 
-Plug 'burnettk/vim-angular'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 0
@@ -98,65 +106,51 @@ autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 
+"""""start""
 
 
 
 Plug 'junegunn/goyo.vim'
-Plug 'prabirshrestha/async.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" if executable('pyls')
-"     " pip install python-language-server
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'pyls',
-"         \ 'cmd': {server_info->['pyls']},
-"         \ 'whitelist': ['python'],
-"         \ })
-" endif
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" let g:LanguageClient_autoStart = 1
-" set omnifunc=LanguageClient#complete
-" let g:LanguageClient_diagnosticsEnable = 0
-"
-" let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#enable_at_startup = 1
 Plug 'scrooloose/nerdtree'
+nnoremap <c-n> :NERDTreeToggle<CR>
 
 "auto pairs
 Plug 'jiangmiao/auto-pairs'
 
 " status bar mods
 "
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+"
+"
 "Nord vim color scheme
 Plug 'arcticicestudio/nord-vim'
-
-"Color
+"
+" "Color
 Plug 'morhetz/gruvbox'
-
-"Dracula
+"
+" "Dracula
 Plug 'blueshirts/darcula'
-
+"
 Plug 'tpope/vim-surround'
-"Comment easily with gcc"
+" Comment easily with gcc"
 Plug 'tomtom/tcomment_vim' 
-
-Plug 'roxma/ncm-flow'
-
-
+"
+"
 Plug 'alvan/vim-closetag'
 Plug 'othree/html5.vim'
-Plug 'sheerun/vim-polyglot'
-
-
-
+" Plug 'sheerun/vim-polyglot'
+"
+"
+"
 " (Optional) Multi-entry selection UI.
 Plug 'Shougo/denite.nvim'
 
 " (Optional) Showing function signature and inline doc.
-Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/echodoc.vim'
+
 Plug 'HiPhish/repl.nvim'
 let g:repl={}
 let g:repl['python'] = {
@@ -178,8 +172,8 @@ vmap <C-j>  <Plug>(ReplSend)
 
 
 "Git
-Plug 'airblade/vim-gitgutter'
-:au VimEnter * :GitGutterDisable
+" Plug 'airblade/vim-gitgutter'
+" :au VimEnter * :GitGutterDisable
 Plug 'tpope/vim-fugitive'
 
 
@@ -215,7 +209,9 @@ let g:jedi#rename_command = "<leader>r"
 "let g:airline#extensions#tabline#enabled = 0
 let g:AirlineTheme = 'minimalist'
 
-
+let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+let $NVIM_NCM_LOG_LEVEL="DEBUG"
+let $NVIM_NCM_MULTI_THREAD=0
 
 
 
