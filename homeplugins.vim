@@ -70,7 +70,9 @@ if has('nvim')
 		\ 'javascript.jsx': ['javascript-typescript-stdio'],
 		\ 'html': ['html-languageserver', '--stdio'],
 		\ 'css': ['css-languageserver', '--stdio'],
-		\ 'python':['pyls']
+		\ 'python':['pyls'],
+		\ 'cpp': ['clangd'],
+		\ 'c': ['clangd']
 		\ }
 endif
 
@@ -79,6 +81,8 @@ endif
     " \ 'javascript.jsx': ['javascript-typescript-stdio'],
 
 Plug '/usr/local/opt/fzf'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 Plug 'junegunn/fzf.vim'
 
 " Plug 'mkitt/browser-refresh.vim'
@@ -119,6 +123,7 @@ nnoremap <c-n> :NERDTreeToggle<CR>
 "auto pairs
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'vim-python/python-syntax'
 " status bar mods
 "
 " Plug 'vim-airline/vim-airline'
@@ -133,7 +138,14 @@ Plug 'morhetz/gruvbox'
 "
 " "Dracula
 Plug 'blueshirts/darcula'
-"
+Plug 'phanviet/sidonia'
+Plug 'AlessandroYorba/Sierra'
+Plug 'hauleth/blame.vim'
+Plug 'nightsense/seagrey'
+Plug 'JarrodCTaylor/spartan'
+
+
+
 Plug 'tpope/vim-surround'
 " Comment easily with gcc"
 Plug 'tomtom/tcomment_vim' 
@@ -209,6 +221,10 @@ let g:jedi#rename_command = "<leader>r"
 "let g:airline#extensions#tabline#enabled = 0
 let g:AirlineTheme = 'minimalist'
 
+" Python syntax settings
+let g:python_highlight_class_vars=0
+let g:python_space_error_highlight=0
+
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_NCM_LOG_LEVEL="DEBUG"
 let $NVIM_NCM_MULTI_THREAD=0
@@ -218,3 +234,5 @@ let $NVIM_NCM_MULTI_THREAD=0
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <leader>b :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
+
+

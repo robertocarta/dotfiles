@@ -21,7 +21,7 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme darcula
+colorscheme sierra
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
@@ -64,7 +64,7 @@ set splitbelow
 """"""" python stuff 
 syntax enable
 set number showmatch
-let python_highlight_all = 1
+" let python_highlight_all = 1
 set smartindent
 set noexpandtab
 setlocal shiftwidth=4
@@ -96,3 +96,12 @@ set signcolumn=yes
 
 set exrc
 set secure
+
+set noshowcmd
+
+
+
+augroup nord-overrides
+  autocmd!
+  autocmd ColorScheme nord highlight Comment ctermfg=14
+augroup END
