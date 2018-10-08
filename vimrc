@@ -40,6 +40,8 @@ set laststatus=2
 set mouse=a
 set undofile
 
+set noshowmode " neede for echodoc plugin
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

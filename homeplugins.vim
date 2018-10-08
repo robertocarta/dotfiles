@@ -26,11 +26,16 @@ call plug#begin('~/.vim/plugged')
 " let g:jedi#completions_enabled = 0
 
 " (Optional) Completion integration with deoplete.
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'zchee/deoplete-jedi'
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
 "let g:deoplete#enable_refresh_always = 1
+
+Plug 'Shougo/echodoc.vim'
+let g:echodoc_enable_at_startup = 1
+set completeopt-=preview
+
 "
 " Plug 'neomake/neomake'
 "Plug 'w0rp/ale'
@@ -57,8 +62,13 @@ call plug#begin('~/.vim/plugged')
 if has('nvim')
 	Plug 'AndrewRadev/splitjoin.vim'
 	"
-	Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
-
+	" Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+    "
+	" Plug 'roxma/nvim-yarp' " dependency of ncm2
+    " Plug 'ncm2/ncm2'
+	" autocmd BufEnter * call ncm2#enable_for_buffer()
+	" set completeopt=noinsert,menuone,noselect
+    "
 	Plug 'autozimu/LanguageClient-neovim', {
 		\ 'branch': 'next',
 		\ 'do': 'bash install.sh',
@@ -95,7 +105,7 @@ nnoremap <C-g> :Buffers <CR>
 
 
 " Use fuzzy matching
-let g:cm_matcher = {'case': 'smartcase', 'module': 'cm_matchers.fuzzy_matcher'}
+" let g:cm_matcher = {'case': 'smartcase', 'module': 'cm_matchers.fuzzy_matcher'}
 autocmd FileType javascript,python,typescript,json,css,less,html,reason setlocal omnifunc=LanguageClient#complete
 
 
@@ -225,9 +235,6 @@ let g:AirlineTheme = 'minimalist'
 let g:python_highlight_class_vars=0
 let g:python_space_error_highlight=0
 
-let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
-let $NVIM_NCM_LOG_LEVEL="DEBUG"
-let $NVIM_NCM_MULTI_THREAD=0
 
 
 

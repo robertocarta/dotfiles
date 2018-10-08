@@ -12,7 +12,10 @@ source ~/.vimrc
 
 
 let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog = '/usr/local/bin/ipython3'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p 
+au Filetype python set errorformat=%f:%l:\ %m
 
 set undofile
 

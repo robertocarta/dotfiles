@@ -1,4 +1,6 @@
 neovim
 python-language-server
 pylint
-
+Rope
+Pyflakes
+McCabe
