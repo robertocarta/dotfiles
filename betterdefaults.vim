@@ -17,6 +17,10 @@ set clipboard+=unnamed
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Delete>
+
+nnoremap ) :call feedkeys("]m")<cr>
+nnoremap ( :call feedkeys("[m")<cr>
+
 """
 augroup focus
     au!
@@ -35,3 +39,5 @@ augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
 augroup END
+
+nnoremap <leader>u :grep -r <cword> . --exclude-dir={.git,env,data,.idea,'*/__pycache__'}\|grep -v Binary<cr>

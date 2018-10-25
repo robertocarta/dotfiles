@@ -91,7 +91,10 @@ nnoremap <leader>s diwbbPa, <ESC>f,df <ESC>
 au FileType html setl sw=4 sts=4 et
 au FileType htmldjango setl sw=4 sts=4 et
 au FileType javascript setl sw=4 sts=4 et
+au FileType javascript setl sw=2 sts=2 et
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+
 
 
 set signcolumn=yes
@@ -102,8 +105,17 @@ set secure
 set noshowcmd
 
 
+" Command helpers
+nnoremap ! :!
+nnoremap <leader>1 :vsplit ~/dotfiles/vimrc<cr>
+nnoremap <leader>2 :w<cr>:source % <cr> :q<cr>
+
+
 
 augroup nord-overrides
   autocmd!
   autocmd ColorScheme nord highlight Comment ctermfg=14
 augroup END
+
+
+

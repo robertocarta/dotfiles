@@ -1,6 +1,6 @@
-cp ~/dotfiles/vimrc ~/vimrc
+cp ~/dotfiles/vimrc ~/.vimrc
 cp ~/dotfiles/init.vim ~/.config/nvim/init.vim
-vim -c "PlugClean"
-vim -c "PlugInstall"
+nvim -c "PlugClean"
+nvim -c "PlugInstall"
 echo "Done."
 
