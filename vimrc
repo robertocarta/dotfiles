@@ -8,6 +8,7 @@ if has('nvim')
 	source ~/dotfiles/pynavigate.vim
 	source ~/dotfiles/webdevcustom.vim
 	source ~/dotfiles/django.vim
+	source ~/dotfiles/javahelpers.vim
 endif
 "
 set nocompatible
@@ -69,8 +70,8 @@ set number showmatch
 " let python_highlight_all = 1
 set smartindent
 set noexpandtab
-setlocal shiftwidth=4
-setlocal tabstop=4
+set shiftwidth=4
+set tabstop=8
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
