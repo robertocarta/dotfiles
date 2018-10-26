@@ -53,3 +53,6 @@ function! ChooseTerm(termname, slider)
         :exe "f " a:termname
     endif
 endfunction
+
+
+nnoremap <leader>u :!osascript ~/dotfiles/reloadchrome.sh <cr>

@@ -100,7 +100,7 @@ let g:RefreshRunningBrowserDefault = 'chrome'
 nnoremap <C-p> :FZF <CR>
 nnoremap <C-f> :Lines <CR>
 nnoremap <C-g> :Ag <CR>
-nnoremap <C-g> :Buffers <CR>
+nnoremap <C-b> :Buffers <CR>
 
 
 
@@ -239,7 +239,9 @@ let g:python_space_error_highlight=0
 
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <F4> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <leader>b :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <leader>r :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <leader>v :call call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'}) <CR>
 
 
