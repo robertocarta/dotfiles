@@ -34,7 +34,9 @@ alias gsuno="git status -uno"
 alias gssuno="git status -suno"
 alias gpl="git pull"
 alias gps="git push"
+alias reloadrc="source ~/.bash_profile"
 
 source ~/.bash_tvsquaredrc
 source ~/.bash_better_defaults
 source ~/dotfiles/git-completion.bash
+
