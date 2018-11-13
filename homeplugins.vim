@@ -82,7 +82,8 @@ if has('nvim')
 		\ 'css': ['css-languageserver', '--stdio'],
 		\ 'python':['pyls'],
 		\ 'cpp': ['clangd'],
-		\ 'c': ['clangd']
+		\ 'c': ['clangd'],
+		\ 'java': ['/usr/local/bin/jdtls']
 		\ }
 endif
 
