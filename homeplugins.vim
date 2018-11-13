@@ -87,6 +87,8 @@ if has('nvim')
 		\ }
 endif
 
+Plug 'mattn/emmet-vim'
+Plug 'mxw/vim-jsx'
 
     " \ 'javascript': ['javascript-typescript-stdio'],
     " \ 'javascript.jsx': ['javascript-typescript-stdio'],
