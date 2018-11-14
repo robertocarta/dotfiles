@@ -155,6 +155,7 @@ Plug 'AlessandroYorba/Sierra'
 Plug 'hauleth/blame.vim'
 Plug 'nightsense/seagrey'
 Plug 'JarrodCTaylor/spartan'
+Plug 'szorfein/fantasy.vim'
 
 
 
