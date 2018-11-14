@@ -1,6 +1,8 @@
 map leader = " " 
 let g:mapleader = " "
 source ~/dotfiles/homeplugins.vim
+
+nnoremap <leader>D :vs ~/dotfiles<cr>
 " source ~/dotfiles/plsp.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
@@ -68,9 +70,9 @@ syntax enable
 set number showmatch
 " let python_highlight_all = 1
 set smartindent
-set noexpandtab
-setlocal shiftwidth=4
-setlocal tabstop=4
+set expandtab
+set shiftwidth=4
+set tabstop=8
 
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
@@ -88,10 +90,10 @@ nnoremap <leader>O mp}o<ESC>{O<ESC>`p
 " swap two function args with cursor on the second
 nnoremap <leader>s diwbbPa, <ESC>f,df <ESC>
 
-au FileType html setl sw=4 sts=4 et
-au FileType htmldjango setl sw=4 sts=4 et
-au FileType javascript setl sw=4 sts=4 et
-au FileType javascript setl sw=2 sts=2 et
+au FileType html setl sw=2 sts=2 et
+au FileType htmldjango setl sw=2 sts=2 et
+au FileType javascript setl sw=2 sts=2 et | source ~/dotfiles/javascriptcustom.vim
+au FileType java setl sw=2 sts=2 et | source ~/dotfiles/javahelpers.vim
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 
@@ -99,6 +101,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 set signcolumn=yes
 
+" Execute project spoecitif vimrcs
 set exrc
 set secure
 
