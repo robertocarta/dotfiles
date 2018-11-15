@@ -157,6 +157,10 @@ Plug 'hauleth/blame.vim'
 Plug 'nightsense/seagrey'
 Plug 'JarrodCTaylor/spartan'
 
+Plug 'chriskempson/base16-vim'
+Plug 'sonph/onehalf'
+Plug 'jnurmine/Zenburn'
+Plug 'kristijanhusak/vim-hybrid-material'
 
 
 Plug 'tpope/vim-surround'
