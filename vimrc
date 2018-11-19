@@ -110,8 +110,6 @@ set noshowcmd
 
 " Command helpers
 nnoremap ! :!
-nnoremap <leader>1 :vsplit ~/dotfiles/vimrc<cr>
-nnoremap <leader>2 :w<cr>:source % <cr> :q<cr>
 
 
 
