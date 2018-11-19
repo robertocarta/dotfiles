@@ -23,7 +23,8 @@ filetype plugin indent on
 hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
-colorscheme sierra
+" colorscheme sierra
+colorscheme base16-ocean
 
 highlight LineNr ctermfg=darkgrey
 syntax enable
