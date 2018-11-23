@@ -24,7 +24,47 @@ hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
 " colorscheme sierra
-colorscheme base16-ocean
+
+function! ColorDark()
+        let g:curcolor="dark"
+        set background=dark
+        colorscheme seagrey-dark
+        let &t_ZH="\e[3m"
+        let &t_ZR="\e[23m"
+        highlight Comment cterm=italic
+        highlight Comment cterm=italic
+endfunction
+
+function! ColorLight()
+        let g:curcolor="light"
+        set background=light
+        colorscheme seagrey-light
+        set nocursorline
+        let &t_ZH="\e[3m"
+        let &t_ZR="\e[23m"
+        highlight Comment cterm=italic
+        highlight Comment cterm=italic
+endfunction
+
+
+function! ToggleColor()
+        if g:curcolor=="dark"
+                call ColorLight()
+        else
+                call ColorDark()
+        endif
+endfunction
+
+
+
+
+call ColorDark()
+nnoremap <F12> :call ToggleColor()<cr>
+
+
+
+
+" colorscheme base16-ocean
 
 highlight LineNr ctermfg=darkgrey
 syntax enable

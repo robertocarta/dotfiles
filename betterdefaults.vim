@@ -31,7 +31,6 @@ augroup focus
 augroup END
 "
 
-set autowriteall
 
 "open quickfix everytime a quickfixcommand is used
 "
@@ -40,4 +39,6 @@ augroup quickfix
     autocmd QuickFixCmdPost [^l]* cwindow
 augroup END
 
-nnoremap <leader>g :lgrep -r <cword> . --exclude-dir={.git,env,data,.idea,'*/__pycache__'}\|grep -v Binary<cr>
+nnoremap <leader>g :lgrep -r <cword> . --exclude-dir={.git,env,node_modules,data,.idea,'*/__pycache__'}\|grep -v Binary<cr>
+
+nnoremap <F2> :set number!<cr>
