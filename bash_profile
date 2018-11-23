@@ -36,7 +36,10 @@ alias gpl="git pull"
 alias gps="git push"
 alias reloadrc="source ~/.bash_profile"
 
-source ~/.bash_tvsquaredrc
-source ~/.bash_better_defaults
+if [ ! -f ~/.bash_tvsquaredrc ]; then
+    source ~/.bash_tvsquaredrc
+fi
+
+source ~/dotfiles/bash_better_defaults
 source ~/dotfiles/git-completion.bash
 

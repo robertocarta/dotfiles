@@ -9,6 +9,7 @@ cp ~/dotfiles/init.vim ~/.config/nvim/init.vim
 pip3 install -r requirements.txt
 # pip2 install -r requirements.txt
 
+cp ./InconsolataLGC/* ~/Library/Fonts
 
 nvim -c "PlugClean"
 nvim -c "PlugInstall"
