@@ -13,5 +13,7 @@ cp ./InconsolataLGC/* ~/Library/Fonts
 
 nvim -c "PlugClean"
 nvim -c "PlugInstall"
+nvim -c "CocInstall coc-pyls"
+nvim -c "CocInstall coc-tsserver"
 echo "Done."
 
