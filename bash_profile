@@ -1,4 +1,5 @@
 set -o vi
+alias vi=nvim
 
 export PYTHONPATH="/Users/robertocarta/spark/latest/python"
 export PYSPARK_PYTHON=/usr/local/bin/python2
@@ -35,11 +36,15 @@ alias gssuno="git status -suno"
 alias gpl="git pull"
 alias gps="git push"
 alias reloadrc="source ~/.bash_profile"
+alias td="nvim ~/.todos.md"
+alias scratch="nvim ~/.scratch.md"
 
-if [ ! -f ~/.bash_tvsquaredrc ]; then
+if [ -f ~/.bash_tvsquaredrc ]; then
     source ~/.bash_tvsquaredrc
 fi
 
 source ~/dotfiles/bash_better_defaults
 source ~/dotfiles/git-completion.bash
 
+
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'

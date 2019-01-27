@@ -39,6 +39,10 @@ augroup quickfix
     autocmd QuickFixCmdPost [^l]* cwindow
 augroup END
 
-nnoremap <leader>g :lgrep -r <cword> . --exclude-dir={.git,env,node_modules,data,.idea,'*/__pycache__'}\|grep -v Binary<cr>
+nnoremap <leader>g :grep -r <cword> . --exclude-dir={.git,env,env1,env2,env3,venv,node_modules,data,.idea,'*/__pycache__'}
 
 nnoremap <F2> :set number!<cr>
+
+au TermOpen * setlocal nonumber
+
+

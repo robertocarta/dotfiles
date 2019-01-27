@@ -25,12 +25,6 @@ call plug#begin('~/.vim/plugged')
 "disable autocomplete for jedi
 " let g:jedi#completions_enabled = 0
 
-" (Optional) Completion integration with deoplete.
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'zchee/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
-" let g:deoplete#omni#input_patterns = get(g:, 'deoplete#omni#input_patterns', {})
-"let g:deoplete#enable_refresh_always = 1
 
 Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
@@ -85,7 +79,7 @@ if has('nvim')
 	" 	\ 'c': ['clangd'],
 	" 	\ 'java': ['/usr/local/bin/jdtls']
 	" 	\ }
-        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
     " if hidden not set, TextEdit might fail.
     set hidden
 
@@ -235,7 +229,6 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 
 Plug 'junegunn/goyo.vim'
 
-let g:deoplete#enable_at_startup = 1
 Plug 'scrooloose/nerdtree'
 nnoremap <c-n> :NERDTreeToggle<CR>
 
@@ -321,15 +314,15 @@ call plug#end()
 
 """"""" jedi-vim """""""
 " don't mess up undo history
-let g:jedi#show_call_signatures = "0"
-
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
+" let g:jedi#show_call_signatures = "0"
+"
+" let g:jedi#goto_command = "<leader>d"
+" let g:jedi#goto_assignments_command = "<leader>g"
+" let g:jedi#goto_definitions_command = ""
+" let g:jedi#documentation_command = "K"
+" let g:jedi#usages_command = "<leader>n"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#rename_command = "<leader>r"
 
 
 

@@ -1,4 +1,4 @@
-map leader = " " 
+map leader = " "
 let g:mapleader = " "
 source ~/dotfiles/homeplugins.vim
 
@@ -11,6 +11,8 @@ if has('nvim')
 	source ~/dotfiles/webdevcustom.vim
 	source ~/dotfiles/django.vim
 endif
+
+
 "
 set nocompatible
 set t_Co=256
@@ -37,11 +39,7 @@ endfunction
 
 function! ColorLight()
         let g:curcolor="light"
-        set background=light
-        colorscheme seagrey-light
-        set nocursorline
-        let &t_ZH="\e[3m"
-        let &t_ZR="\e[23m"
+        colorscheme base16-google-light
         highlight Comment cterm=italic
         highlight Comment cterm=italic
 endfunction
@@ -136,6 +134,8 @@ au FileType htmldjango setl sw=2 sts=2 et
 au FileType javascript setl sw=2 sts=2 et | source ~/dotfiles/javascriptcustom.vim
 au FileType java setl sw=2 sts=2 et | source ~/dotfiles/javahelpers.vim
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+au FileType markdown setlocal nonumber
+au FileType markdown call ColorLight()
 
 
 
