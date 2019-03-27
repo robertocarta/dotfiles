@@ -32,7 +32,8 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-nnoremap <C-q> :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap Q :call ToggleList("Quickfix List", 'c')<CR>
+nnoremap <c-q> :call ToggleList("Location List", 'l')<CR>
 nnoremap <C-s> :call GoToSymbol()<CR>
 
 

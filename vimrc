@@ -30,7 +30,8 @@ set background=dark
 function! ColorDark()
         let g:curcolor="dark"
         set background=dark
-        colorscheme seagrey-dark
+        " colorscheme seagrey-dark
+        colorscheme one
         let &t_ZH="\e[3m"
         let &t_ZR="\e[23m"
         highlight Comment cterm=italic
@@ -39,7 +40,8 @@ endfunction
 
 function! ColorLight()
         let g:curcolor="light"
-        colorscheme base16-google-light
+        colorscheme one
+        set background=light
         highlight Comment cterm=italic
         highlight Comment cterm=italic
 endfunction
@@ -135,7 +137,7 @@ au FileType javascript setl sw=2 sts=2 et | source ~/dotfiles/javascriptcustom.v
 au FileType java setl sw=2 sts=2 et | source ~/dotfiles/javahelpers.vim
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType markdown setlocal nonumber
-au FileType markdown call ColorLight()
+au FileType sql source ~/dotfiles/psql.vim
 
 
 
@@ -151,13 +153,14 @@ set noshowcmd
 
 " Command helpers
 nnoremap ! :!
+nnoremap <leader>p :pclose<cr>
 
 
 
-augroup nord-overrides
-  autocmd!
-  autocmd ColorScheme nord highlight Comment ctermfg=14
-augroup END
+" augroup nord-overrides
+"   autocmd!
+"   autocmd ColorScheme nord highlight Comment ctermfg=14
+" augroup END
 
 
 

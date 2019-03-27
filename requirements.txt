@@ -4,3 +4,4 @@ pylint
 Rope
 Pyflakes
 McCabe
+sqlparse

@@ -25,11 +25,82 @@ call plug#begin('~/.vim/plugged')
 "disable autocomplete for jedi
 " let g:jedi#completions_enabled = 0
 
+" Advanced syntax highlighting for python
+Plug 'numirias/semshi'
+let g:semshi#excluded_hl_groups = [ 'local','attribute', 'builtin', 'parameter',  'imported' ]
+let g:semshi#mark_selected_nodes = 0
 
-Plug 'Shougo/echodoc.vim'
-let g:echodoc_enable_at_startup = 1
+function! MyCustomHighlights()
+    hi semshiSelected        cterm=bold gui=bold
+endfunction
+autocmd FileType python call MyCustomHighlights()
+
+
+" Plug 'Shougo/echodoc.vim'
+" let g:echodoc_enable_at_startup = 1
 set completeopt-=preview
 
+Plug 'liuchengxu/vista.vim'
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+
+" Position to open the vista sidebar. On the right by default.
+" Change to 'vertical topleft' to open on the left.
+let g:vista_sidebar_position = 'vertical botright'
+
+" Width of vista sidebar.
+let g:vista_sidebar_width = 30
+
+" Set this flag to 0 to disable echoing when the cursor moves.
+let g:vista_echo_cursor = 1
+
+" Time delay for showing detailed symbol info at current cursor.
+let g:vista_cursor_delay = 400
+
+" Close the vista window automatically close when you jump to a symbol.
+let g:vista_close_on_jump = 0
+
+" Move to the vista window when it is opened.
+let g:vista_stay_on_open = 1
+
+" Blinking cursor 2 times with 100ms interval after jumping to the tag.
+let g:vista_blink = [2, 100]
+
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" Executive used when opening vista sidebar without specifying it.
+" See all the avaliable executives via `:echo g:vista#executives`.
+let g:vista_default_executive = 'ctags'
+
+" Declare the command including the executable and options used to generate ctags output
+" for some certain filetypes.The file path will be appened to your custom command.
+" For example:
+let g:vista_ctags_cmd = {
+      \ 'haskell': 'hasktags -o - -c',
+      \ }
+
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
+
+" Fall back to other executives if the specified one gives empty data.
+" By default it's all the provided executives excluding the tried one.
+" let g:vista_finder_alternative_executives = ['coc']
+
+set statusline+=\ %f
+set statusline+=%=
+" let &statusline .= ' %{cfi#format("%s", "")}'
+" set statusline+=%{NearestMethodOrFunction()}
+let &statusline .= ' %{NearestMethodOrFunction()}'
+"
+"
+"
 "
 " Plug 'neomake/neomake'
 "Plug 'w0rp/ale'
@@ -187,6 +258,11 @@ nnoremap <silent> <space>l  :<C-u>Denite coc-link<cr>
 
 endif
 
+" Plug 'tyru/current-func-info.vim'
+" set statusline+=\ %f
+" set statusline+=%=
+" let &statusline .= ' %{cfi#format("%s", "")}'
+
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 
@@ -247,7 +323,7 @@ Plug 'arcticicestudio/nord-vim'
 "
 " "Color
 Plug 'morhetz/gruvbox'
-"
+Plug 'rakr/vim-one'
 " "Dracula
 Plug 'blueshirts/darcula'
 Plug 'phanviet/sidonia'
