@@ -48,3 +48,9 @@ source ~/dotfiles/git-completion.bash
 
 
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+brew_install() {
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install $@
+}
+
+

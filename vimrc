@@ -1,8 +1,5 @@
-map leader = " "
-let g:mapleader = " "
 source ~/dotfiles/homeplugins.vim
 
-nnoremap <leader>D :vs ~/dotfiles<cr>
 " source ~/dotfiles/plsp.vim
 if has('nvim')
 	source ~/dotfiles/test.vim
@@ -13,16 +10,19 @@ if has('nvim')
 endif
 
 
+" --------------------------------------------------------
+" ------------------------- colors ---------------------
+" --------------------------------------------------------
+"
 "
 set nocompatible
 set t_Co=256
+set shortmess+=c
 set termguicolors
-" set guicursor=n-c:block-Cursor/lCursor-blinkon0,i-v-ci:block-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-filetype plugin indent on
 
 
 "THIS OVERRIDES THE COLORSCHEME (i think)
-hi Normal ctermbg=NONE
+" hi Normal ctermbg=NONE
 highlight LineNr ctermfg=darkgrey
 set background=dark
 " colorscheme sierra
@@ -32,6 +32,7 @@ function! ColorDark()
         set background=dark
         " colorscheme seagrey-dark
         colorscheme one
+        " :highlight Normal ctermfg=NONE ctermbg=NONE
         let &t_ZH="\e[3m"
         let &t_ZR="\e[23m"
         highlight Comment cterm=italic
@@ -40,7 +41,12 @@ endfunction
 
 function! ColorLight()
         let g:curcolor="light"
+        " set termguicolors
+        highlight Normal ctermfg=black ctermbg=white
+
+
         colorscheme one
+
         set background=light
         highlight Comment cterm=italic
         highlight Comment cterm=italic
@@ -55,40 +61,72 @@ function! ToggleColor()
         endif
 endfunction
 
-
-
-
-call ColorDark()
 nnoremap <F12> :call ToggleColor()<cr>
 
+call ColorDark()
+
+" --------------------------------------------------------
+" ------------------------- settings ---------------------
+" --------------------------------------------------------
+
+set exrc
+set secure
+set autoread                   " Automatically read a file changed outside of vim
+set autowrite
 
 
+set signcolumn=yes
+set showcmd        " Show partial commands in status line and Selected characters/lines in visual mode
+set noshowcmd
+set showmode       " Show current mode in command-line
+set showmatch      " Show matching brackets/parentthesis
+set matchtime=5    " Show matching time
+set report=0       " Always report changed lines
+set pumheight=20   " Avoid the pop up menu occupying the whole screen
 
-" colorscheme base16-ocean
+set clipboard+=unnamed
 
-highlight LineNr ctermfg=darkgrey
+"""
+augroup focus
+    au!
+    au TabLeave *  silent! wall
+    silent! au FocusLost * silent! wall
+    silent! au BufLeave *  silent! wall
+    silent! au WinLeave * silent! wall
+augroup END
+"
+
+
+"open quickfix everytime a quickfixcommand is used
+"
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+augroup END
+
+
+filetype plugin indent on
 syntax enable
 set noswapfile
+set mouse=a
+
 set ignorecase
 set smartcase
+
 set numberwidth=1
-set autoread
 set cursorline
 set keywordprg=":help"
-set ttimeout
-set ttimeoutlen=50
+
 set incsearch
 set hlsearch
+
 set laststatus=2
-set mouse=a
 set undofile
 
 set noshowmode " neede for echodoc plugin
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+set ttimeout
+set ttimeoutlen=50
 
 
 "split rules
@@ -101,66 +139,79 @@ set splitbelow
 
 "  Scrolling 
 
- set scrolloff=8         "Start scrolling when we're 8 lines away from
- set sidescrolloff=15
+ set scrolloff=4       "Start scrolling when we're 8 lines away from
+"  set sidescrolloff=15
  set sidescroll=1
  
 
 """"""" python stuff 
-syntax enable
 set number showmatch
-" let python_highlight_all = 1
+
+
+" indentation
 set smartindent
 set expandtab
 set shiftwidth=4
 set tabstop=8
 
+" Execute project spoecitif vimrcs
+
+" --------------------------------------------------------
+" ------------------------- vanilla mappings -------------
+" --------------------------------------------------------
+map leader = " "
+let g:mapleader = " "
+
+vnoremap < <gv
+vnoremap > >gv
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gki
+
+nnoremap ) :call feedkeys("]m")<cr>
+nnoremap ( :call feedkeys("[m")<cr>
+
+nnoremap <leader>g :grep -r <cword> . --exclude-dir={.git,env,env1,env2,env3,venv,node_modules,data,.idea,'*/__pycache__'}
+
+nnoremap <F2> :set number!<cr>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap <leader>p :pclose<cr>
+nnoremap ! :!
+nnoremap <leader>8 mv*#`v
 nnoremap <silent> <ESC> :nohlsearch <CR>
 
-nnoremap <leader>8 mv*#`v
+nnoremap <leader>D :vs ~/dotfiles<cr>
+
+nnoremap <F1> :windo set wrap!<cr>
 
 
-
-"make space around line/par
-nnoremap <leader>o mpo<ESC>kO<ESC>`p
-nnoremap <leader>O mp}o<ESC>{O<ESC>`p
-
-
-
-
-" swap two function args with cursor on the second
-nnoremap <leader>s diwbbPa, <ESC>f,df <ESC>
+" --------------------------------------------------------
+" ------------------------- autocommands -------------
+" --------------------------------------------------------
 
 au FileType html setl sw=2 sts=2 et
 au FileType htmldjango setl sw=2 sts=2 et
 au FileType javascript setl sw=2 sts=2 et | source ~/dotfiles/javascriptcustom.vim
+"needed?
+au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+
+au FileType c setl sw=2 sts=2 et | source ~/dotfiles/cstyle.vim
+au FileType cpp setl sw=2 sts=2 et | source ~/dotfiles/cstyle.vim
 au FileType java setl sw=2 sts=2 et | source ~/dotfiles/javahelpers.vim
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType markdown setlocal nonumber
 au FileType sql source ~/dotfiles/psql.vim
+au TermOpen * setlocal nonumber
 
 
 
 
-set signcolumn=yes
 
-" Execute project spoecitif vimrcs
-set exrc
-set secure
-
-set noshowcmd
-
-
-" Command helpers
-nnoremap ! :!
-nnoremap <leader>p :pclose<cr>
-
-
-
-" augroup nord-overrides
-"   autocmd!
-"   autocmd ColorScheme nord highlight Comment ctermfg=14
-" augroup END
 
 
 
