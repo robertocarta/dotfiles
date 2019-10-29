@@ -31,6 +31,7 @@ function! ColorDark()
         let g:curcolor="dark"
         set background=dark
         " colorscheme seagrey-dark
+        " colorscheme one
         colorscheme one
         " :highlight Normal ctermfg=NONE ctermbg=NONE
         let &t_ZH="\e[3m"

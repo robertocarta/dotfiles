@@ -16,6 +16,11 @@ endif
 
 
 call plug#begin('~/.vim/plugged')
+    Plug '~/expandstar'
+    Plug 'szymonmaszke/vimpyter' "vim-plug
+    Plug 'ivanov/vim-ipython'
+    Plug 'sainnhe/gruvbox-material'
+
 
     Plug 'reedes/vim-pencil'
     "
@@ -96,7 +101,7 @@ call plug#begin('~/.vim/plugged')
         set hidden
 
         " Better display for messages
-        set cmdheight=2
+        set cmdheight=1
 
         " Smaller updatetime for CursorHold & CursorHoldI
         set updatetime=300
@@ -112,14 +117,15 @@ call plug#begin('~/.vim/plugged')
         inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
         " Use `[c` and `]c` for navigate diagnostics
-        nmap <silent> [c <Plug>(coc-diagnostic-prev)
-        nmap <silent> ]c <Plug>(coc-diagnostic-next)
+        nmap <silent> [e <Plug>(coc-diagnostic-prev)
+        nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
         " Remap keys for gotos
         nmap <silent> gd <Plug>(coc-definition)
         nmap <silent> gy <Plug>(coc-type-definition)
         nmap <silent> gi <Plug>(coc-implementation)
         nmap <silent> gr <Plug>(coc-references)
+        nmap <silent> gh <Plug>(coc-hover)
 
         " Use K for show documentation in preview window
         nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -133,10 +139,10 @@ call plug#begin('~/.vim/plugged')
         endfunction
 
         " Highlight symbol under cursor on CursorHold
-        autocmd CursorHold * silent call CocActionAsync('highlight')
+        " autocmd CursorHold * silent call CocActionAsync('highlight')
 
         " Remap for rename current word
-        nmap <leader>rn <Plug>(coc-rename)
+        nmap grn <Plug>(coc-rename)
 
         " Remap for format selected region
         vmap <leader>f  <Plug>(coc-format-selected)
@@ -194,7 +200,28 @@ call plug#begin('~/.vim/plugged')
     nnoremap <c-n> :NERDTreeToggle<CR>
     Plug 'jiangmiao/auto-pairs'
     " "Color
+    Plug 'sonph/onehalf', {'rtp': 'vim/'}
+    Plug 'joshdick/onedark.vim'
     Plug 'rakr/vim-one'
+    let g:one_allow_italics = 1 " I love italic for comments
+
+    "Credit joshdick
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
     Plug 'tpope/vim-surround'
     Plug 'tomtom/tcomment_vim' 
     Plug 'alvan/vim-closetag'
