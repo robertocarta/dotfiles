@@ -20,6 +20,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'szymonmaszke/vimpyter' "vim-plug
     Plug 'ivanov/vim-ipython'
     Plug 'sainnhe/gruvbox-material'
+    Plug 'nightsense/strawberry'
+    nnoremap <leader>sbd :colorscheme strawberry-dark<cr>
+    nnoremap <leader>sbl :colorscheme strawberry-light<cr>
 
 
     Plug 'reedes/vim-pencil'
