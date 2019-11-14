@@ -64,8 +64,8 @@ endfunction
 
 nnoremap <F12> :call ToggleColor()<cr>
 
-" call ColorDark()
-call ColorLight()
+call ColorDark()
+" call ColorLight()
 
 " --------------------------------------------------------
 " ------------------------- settings ---------------------
