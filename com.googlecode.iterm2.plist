@@ -1395,7 +1395,7 @@
 		</dict>
 	</dict>
 	<key>Default Bookmark Guid</key>
-	<string>269CF577-9FCE-45ED-A8FB-372D6AFF0224</string>
+	<string>6F7379E0-CC8F-4DC2-94BB-A821BC6854C4</string>
 	<key>DisableMetalWhenIdle</key>
 	<true/>
 	<key>DisableMetalWhenUnplugged</key>
@@ -1746,6 +1746,8 @@
 			<true/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>23.840422747461929</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1774,13 +1776,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.80000000000000004</real>
+				<real>0.8003997802734375</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.701960784314</real>
+				<real>0.8003997802734375</real>
 				<key>Red Component</key>
-				<real>0.63921568627500003</real>
+				<real>0.8003997802734375</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -1820,6 +1822,8 @@
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
 			<true/>
+			<key>Draw Powerline Glyphs</key>
+			<false/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -1838,11 +1842,13 @@
 			<key>Guid</key>
 			<string>6F7379E0-CC8F-4DC2-94BB-A821BC6854C4</string>
 			<key>Horizontal Spacing</key>
-			<real>0.94999999999999996</real>
+			<real>1</real>
 			<key>Icon</key>
 			<integer>1</integer>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -2155,7 +2161,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>InconsolataLGC 14</string>
+			<string>Inconsolata-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -2199,7 +2205,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>D</string>
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Silence Bell</key>
@@ -2366,7 +2372,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.05</real>
+			<real>1.0600000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -2655,13 +2661,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.2293548583984375</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.80784313725500001</real>
+				<real>0.2293548583984375</real>
 				<key>Red Component</key>
-				<real>0.74901960784300003</real>
+				<real>0.2293548583984375</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -2721,7 +2727,7 @@
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>0.94999999999999996</real>
+			<real>1</real>
 			<key>Icon</key>
 			<integer>1</integer>
 			<key>Idle Code</key>
@@ -3038,7 +3044,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 14</string>
+			<string>Inconsolata-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -3082,7 +3088,7 @@
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
-			<string></string>
+			<string>L</string>
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Silence Bell</key>
@@ -4144,19 +4150,19 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
-		<string>3.2.9</string>
+		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.5</string>
+		<string>3.2.9</string>
 		<string>3.3.0</string>
 		<string>3.3.2</string>
-		<string>3.3.4</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Menlo</string>
-		<string>Apple Braille</string>
 		<string>Inconsolata LGC</string>
 		<string>Inconsolata</string>
+		<string>Apple Braille</string>
+		<string>Andale Mono</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
@@ -4170,9 +4176,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1920, 1080}}</string>
+		<string>{{-1440, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{357, 756}</string>
+		<string>{-1301, 670}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -4183,7 +4189,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>590314864.67545998</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>30</integer>
+	<integer>31</integer>
 	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
 	<true/>
 	<key>NoSyncNextAnnoyanceTime</key>
@@ -5086,11 +5092,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-13T10:08:01Z</date>
+	<date>2019-11-20T09:41:48Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>ShowPaneTitles</key>
@@ -5098,7 +5104,7 @@
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40802534054487183</real>
+	<real>0.41640577050941086</real>
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
