@@ -43,7 +43,7 @@ endfunction
 function! ColorLight()
         let g:curcolor="light"
         " set termguicolors
-        highlight Normal ctermfg=black ctermbg=white
+        " highlight Normal ctermfg=black ctermbg=white
 
 
         colorscheme one
