@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
     autocmd FileType python call MyCustomHighlights()
     set completeopt-=preview
 
+
 " Plug 'liuchengxu/vista.vim'
 " function! NearestMethodOrFunction() abort
 "   return get(b:, 'vista_nearest_method_or_function', '')
