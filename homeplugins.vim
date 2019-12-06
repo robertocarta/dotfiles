@@ -28,15 +28,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'reedes/vim-pencil'
     "
     " Advanced syntax highlighting for python
-    Plug 'numirias/semshi'
-    let g:semshi#excluded_hl_groups = [ 'local','attribute', 'builtin', 'parameter',  'imported', 'global' ]
-    let g:semshi#mark_selected_nodes = 0
-    function! MyCustomHighlights()
-        hi semshiSelected        cterm=bold gui=bold
-    endfunction
-    autocmd FileType python call MyCustomHighlights()
-    set completeopt-=preview
-
+    " Plug 'numirias/semshi'
+    " let g:semshi#excluded_hl_groups = [ 'local','attribute', 'builtin', 'parameter',  'imported', 'global' ]
+    " let g:semshi#mark_selected_nodes = 0
+    " function! MyCustomHighlights()
+    "     hi semshiSelected        cterm=bold gui=bold
+    " endfunction
+    " autocmd FileType python call MyCustomHighlights()
+    " set completeopt-=preview
+    "
 
 " Plug 'liuchengxu/vista.vim'
 " function! NearestMethodOrFunction() abort
