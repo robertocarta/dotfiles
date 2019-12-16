@@ -192,6 +192,7 @@ nnoremap <leader>D :vs ~/dotfiles<cr>
 
 nnoremap <F1> :windo set wrap!<cr>
 
+nnoremap <leader>e :split\|:e .exrc<cr>
 
 " --------------------------------------------------------
 " ------------------------- autocommands -------------
