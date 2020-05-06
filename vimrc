@@ -19,6 +19,8 @@ set nocompatible
 set t_Co=256
 set shortmess+=c
 set termguicolors
+set notermguicolors
+set linebreak
 
 
 "THIS OVERRIDES THE COLORSCHEME (i think)
@@ -32,12 +34,14 @@ function! ColorDark()
         set background=dark
         " colorscheme seagrey-dark
         " colorscheme one
-        colorscheme one
+        colorscheme onehalfdark
         " :highlight Normal ctermfg=NONE ctermbg=NONE
         let &t_ZH="\e[3m"
         let &t_ZR="\e[23m"
         highlight Comment cterm=italic
         highlight Comment cterm=italic
+        hi Cursor ctermbg=fg ctermfg=bg
+
 endfunction
 
 function! ColorLight()
@@ -191,6 +195,8 @@ nnoremap <silent> <ESC> :nohlsearch <CR>
 nnoremap <leader>D :vs ~/dotfiles<cr>
 
 nnoremap <F1> :windo set wrap!<cr>
+nnoremap \|\| <c-w>\|
+nnoremap == <c-w>=
 
 nnoremap <leader>e :split\|:e .exrc<cr>
 
@@ -209,7 +215,11 @@ au FileType cpp setl sw=2 sts=2 et | source ~/dotfiles/cstyle.vim
 au FileType java setl sw=2 sts=2 et | source ~/dotfiles/javahelpers.vim
 au FileType markdown setlocal nonumber
 au FileType sql source ~/dotfiles/psql.vim
-au TermOpen * setlocal nonumber
+
+if (has("nvim"))
+    au TermOpen * setlocal nonumber
+endif
+
 
 
 

@@ -24,33 +24,41 @@ call plug#begin('~/.vim/plugged')
     nnoremap <leader>sbd :colorscheme strawberry-dark<cr>
     nnoremap <leader>sbl :colorscheme strawberry-light<cr>
 
+    Plug 'wellle/context.vim'
+    let g:context_enabled = 0
+    nnoremap - :ContextToggle<cr>
+
+
 
     Plug 'reedes/vim-pencil'
     "
     " Advanced syntax highlighting for python
-    " Plug 'numirias/semshi'
-    " let g:semshi#excluded_hl_groups = [ 'local','attribute', 'builtin', 'parameter',  'imported', 'global' ]
-    " let g:semshi#mark_selected_nodes = 0
-    " function! MyCustomHighlights()
-    "     hi semshiSelected        cterm=bold gui=bold
-    " endfunction
-    " autocmd FileType python call MyCustomHighlights()
-    " set completeopt-=preview
-    "
 
-" Plug 'liuchengxu/vista.vim'
-" function! NearestMethodOrFunction() abort
-"   return get(b:, 'vista_nearest_method_or_function', '')
-" endfunction
-"
-"
-" nnoremap <F10> :Vista!!<cr>
-"
-"
-" " Position to open the vista sidebar. On the right by default.
-" " Change to 'vertical topleft' to open on the left.
-" let g:vista_sidebar_position = 'vertical botright'
-"
+    if (has("nvim"))
+        Plug 'numirias/semshi'
+        let g:semshi#excluded_hl_groups = [ 'local','attribute', 'builtin', 'parameter',  'imported', 'global' ]
+        let g:semshi#mark_selected_nodes = 0
+        function! MyCustomHighlights()
+            hi semshiSelected        cterm=bold gui=bold
+        endfunction
+        autocmd FileType python call MyCustomHighlights()
+        set completeopt-=preview
+    endif
+
+
+Plug 'liuchengxu/vista.vim'
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+
+nnoremap <F10> :Vista!!<cr>
+
+
+" Position to open the vista sidebar. On the right by default.
+" Change to 'vertical topleft' to open on the left.
+let g:vista_sidebar_position = 'vertical botright'
+
 " " Width of vista sidebar.
 " let g:vista_sidebar_width = 30
 "
@@ -72,11 +80,11 @@ call plug#begin('~/.vim/plugged')
 " " How each level is indented and what to prepend.
 " " This could make the display more compact or more spacious.
 " " e.g., more compact: ["▸ ", ""]
-" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 "
 " " Executive used when opening vista sidebar without specifying it.
 " " See all the avaliable executives via `:echo g:vista#executives`.
-" let g:vista_default_executive = 'coc'
+let g:vista_default_executive = 'coc'
 "
 " " Declare the command including the executable and options used to generate ctags output
 " " for some certain filetypes.The file path will be appened to your custom command.
@@ -181,13 +189,29 @@ call plug#begin('~/.vim/plugged')
 
     endif
 
+    Plug 'Vigemus/iron.nvim'
+
     Plug 'mxw/vim-jsx'
     Plug '/usr/local/opt/fzf'
     Plug 'junegunn/fzf.vim'
     let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+
+    " pass command line args to ripgrep command
+"Redefine Rg command to allow rg arguments to pass through
+" such as `-tyaml` for yaml files or `-F` for literal strings
+    command! -bang -complete=dir -nargs=* Prg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
     nnoremap <C-p> :FZF <CR>
     nnoremap <C-f> :Lines <CR>
-    nnoremap <C-g> :Ag <CR>
+    nnoremap <C-g> :Rg <CR>
+    nnoremap <C-g> :Rg <CR>
+    nnoremap <C-g>g :Prg 
     nnoremap <C-b> :Buffers <CR>
 
     " Plug 'mkitt/browser-refresh.vim'
@@ -207,6 +231,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sonph/onehalf', {'rtp': 'vim/'}
     Plug 'joshdick/onedark.vim'
     Plug 'rakr/vim-one'
+    Plug 'andreasvc/vim-256noir'
     let g:one_allow_italics = 1 " I love italic for comments
 
     "Credit joshdick
